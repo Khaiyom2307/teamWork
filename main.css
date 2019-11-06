@@ -1,0 +1,19 @@
+.app {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    width: 50vw;
+    height: 25vh;
+    transform: translate(-50%,-50%);
+
+    background-color: #263238;
+}
+
+.app__screen {
+        width: 80%;
+        height: 2rem;
+
+        border: ;
+
+        background-color: #4f5b62;
+}

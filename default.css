@@ -1,0 +1,26 @@
+/*-----------------------------------------------*/
+
+html { box-sizing: border-box; }
+	*, *:before, *:after { box-sizing: inherit; }
+
+/*-----------------------------------------------*/
+
+img { max-width: 100%; }
+
+/*-----------------------------------------------*/
+
+.fl:after, .fr:after,
+.flLast:after, .frLast:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.fl > *, .flLast > * { float:  left; }
+.fr > *, .frLast > * { float: right; }
+	.flLast > *:last-child { float: right; }
+	.frLast > *:last-child { float:  left; }
+
+
+/*-----------------------------------------------*/
+
