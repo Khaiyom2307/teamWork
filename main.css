@@ -1,3 +1,7 @@
+html { box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit; }
+
 .app {
     position: absolute;
     left: 50%;
@@ -16,4 +20,19 @@
         border: ;
 
         background-color: #4f5b62;
+}
+button{
+    width: 20%;
+    height: 2.5rem;  
+}
+
+.app__keyboard .app__tools1,.app__operations,.app__nums{
+    display: block;
+}
+.app__operations button{
+    display:block;
+}
+
+.app__operations,.app__nums{
+    display:inline-block;
 }
