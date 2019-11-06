@@ -36,3 +36,15 @@ button{
 .app__operations,.app__nums{
     display:inline-block;
 }
+.app__operations button{
+    width: 6.6rem;
+}
+.app__nums button{
+    width: 4.9rem;
+    padding-bottom: 8%;
+    padding-top: 7%;
+} 
+.app__nums .app__keyEqual{
+    width: 10.1rem;
+}
+
