@@ -6,18 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="main.css">
 
-    <title>Document</title>
+    <title>Calculator App</title>
 </head>
 <body>
     <div class="app">
-        <div class="app__screen"></div><br>
+        <div class="app__screen">
+            <div class="app__cacheSpace" id="cacheSpace">
+                <div class="app__cacheNumber" id="cacheNumber"></div>
+                <div class="app__cacheOperation" id="cacheOperation"></div>
+            </div>
+            <input type="text" class="app__inputSpace" id="inputSpace"></input>
+        </div><br>
         <div class="app__keyboard">
 
         <div class="app__tools1">
-            <button class="app__keyErase">AC</button>
+            <button class="app__keyErase">⌫</button>
             <button class="app__keyPoint">.</button>
             <button class="app__keyBktF">(</button>
             <button class="app__keyBktL">)</button>
