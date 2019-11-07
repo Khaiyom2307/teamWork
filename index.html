@@ -9,46 +9,47 @@
     <link rel="stylesheet" href="main.css">
 
     <title>Calculator App</title>
+
+
+    <script>
+        function keyClick(x){}
+    </script>
+    
 </head>
 <body>
     <div class="app">
-        <div class="app__screen">
-            <div class="app__cacheSpace" id="cacheSpace">
-                <div class="app__cacheNumber" id="cacheNumber"></div>
-                <div class="app__cacheOperation" id="cacheOperation"></div>
+        <div class="app__screen" id="screen">
+            <div class="app__cacheSpace">
+                <div class="app__cacheOperation" id="cacheOperation">+</div>
             </div>
             <input type="text" class="app__inputSpace" id="inputSpace"></input>
-        </div><br>
+        </div>
         <div class="app__keyboard">
-
-        <div class="app__tools1">
-            <button class="app__keyErase">⌫</button>
-            <button class="app__keyPoint">.</button>
-            <button class="app__keyBktF">(</button>
-            <button class="app__keyBktL">)</button>
-        </div>
-
-        <div class="app__operations">
-            <button class="app__keyPlus">+</button>
-            <button class="app__keyDivide">÷</button>
-            <button class="app__keyMultiply">×</button>
-            <button class="app__keyMinus">-</button>
-        </div>
-
-        <div class="app__nums">
-            <button class="app__key9">9</button>
-            <button class="app__key8">8</button>
-            <button class="app__key7">7</button>
-            <button class="app__key6">6</button><br>
-            <button class="app__key5">5</button>
-            <button class="app__key4">4</button>
-            <button class="app__key3">3</button>
-            <button class="app__key2">2</button><br>
-            <button class="app__key1">1</button>
-            <button class="app__key0">0</button>
-            <button class="app__keyEqual">=</button>
-        </div>
+            <div class="nums">
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key9">9</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key8">8</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key7">7</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__keyPlus">+</button>
+				
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key6">6</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key5">5</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key4">4</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__keyDivide">/</button>
+				
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key3">3</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key2">2</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__key1">1</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__keyMultiply">x</button>
+				
+	            <button onclick="keyClick(this.innerHTML)" class="app__key app__key0">0</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__keyPoint">.</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__keyEqual">=</button>
+                <button onclick="keyClick(this.innerHTML)" class="app__key app__keyMinus">-</button>    
+            </div>
+            
+            <div class="app__cacheNumber" id="cacheNumber"></div>   
         </div>
     </div>
 </body>
+<script src="main.js"></script>
 </html>

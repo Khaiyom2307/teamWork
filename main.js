@@ -1,79 +1,104 @@
-var cache = document.getElementById("cacheSpace");
+var screen = document.getElementById("screen");
     var cacheNumberBox = document.getElementById("cacheNumber");
     var cacheOperationBox = document.getElementById("cacheOperation");
 var inputBox = document.getElementById("inputSpace");
 
-cache.addEventListener("click", () => inputBox.focus() );
+/*
+function keyClick(x){    
+    inputBox.dispatchEvent(new KeyboardEvent());
+} 
+*/
+screen.addEventListener("click", () => inputBox.focus() );
 
 inputBox.addEventListener("keydown", function(e) {
-    if(e.key == 10 || e.key == 13){
+    if(e.keyCode === 13){
         e.preventDefault();
-        calcResult('=');
+        calc('=');
     }
     else{
-        var numArr = '0123456789';
-        if( !(numArr.includes(e.key)) &&
-            !(e.key == '-' && inputBox.textContent == "") )
+        console.log(e);
+        console.log(e.keyCode);
+        var c = e.keyCode;
+
+        var bl = false;
+        if(inputBox.value == '0'){
+            inputBox.value = '';
+            bl=true;
+        }
+        if(inputBox.value == '-0'){
+            inputBox.value = '-';
+            bl=true;
+        }
+
+        if( !( (c >= 48 && c <=57 )   || (c >= 96 && c <=105 )  ) && !( c==8 )
+        ) 
         {
+            if(c == 110 || c == 190) {
+                if( !(inputBox.value.includes('.')) ) {
+                    if(inputBox.value == '' || inputBox.value == '-'){
+                        inputBox.value += '0';
+                    }
+                    inputBox.value += '.';
+                }
+            }
+            if(bl){inputBox.value+='0';}
+
             e.preventDefault();
 
-            var arr = "+-*/";
-            if ( arr.includes(e.key) ) { calcResult(e.key); }
+            
+            switch (c) {
+                case 107:
+                    calc('+');
+                    break;
+                case 109:
+                    calc('-');
+                    break;
+                case 106:
+                    calc('*');
+                    break;
+                case 111:
+                    calc('/');
+                    break;
+                default:
+                    break;
+            }
         }
     }
 });
+function calc (x) {
+    var a = cacheNumberBox.innerText*1;
+    var b = inputBox.value*1;
+        var test = (inputBox.value=='');
+    var result = -1;
 
-function changeUI (result, x) {
-    cacheNumberBox.textContent = result;
-    cacheOperationBox.textContent = x;
-    if(x == '=') {
-        inputBox.textContent = result;
-        inputBox.classList.toggle('active');
-    }
-    else{
-        inputBox.textContent = '';
-    }
+    console.log(a,x,b);
 
-
-}
-
-function calcResult (x) {
-
-    var a = cacheNumberBox.textContent*1;
-    var b = inputBox.textContent*1;
-    var result;
-
-    if(x == '='){
-        switch (cacheOperationBox.textContent) {
-            case '+':
-                result = a+b;
-                break;
-            case '-':
-                result = a-b;
-                break;
-            case 'x':
-                result = a*b;
-                break;
-            case '*':
-                result = a*b;
-                break;
-            case '/':
-                result = a/b;
-                break;
-            case '^':
-                result = a**b;
-                break;
-            case '%':
-                result = a%b;
-                break;
-            default:
-                break;
-        }
-        changeUI(result, x);
-    }
-    else{
-        calcResult('=');
-        changeUI()
+    var operator = cacheOperationBox.innerText;
+    switch (operator) {
+        case '+':
+            result = a+b;
+            break;
+        case '-':
+            result = a-b;
+            break;
+        case '*':
+            result = a*b;
+                if(test){result=a;}
+            break;
+        case '/':
+            result = a/b;
+                if(test){result=a;}
+            break;
+        default:
+            result = a;
+            break;
     }
 
+    cacheNumberBox.innerText = result;
+    inputBox.value = '';
+    cacheOperationBox.innerText = x;
+
+    if( x == '=') {
+        inputBox.value = result;
+    }
 }
